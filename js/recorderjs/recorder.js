@@ -112,7 +112,6 @@ DEALINGS IN THE SOFTWARE.
       window.download.setAttribute('href', url);
       window.download.setAttribute('download', filename || 'output.wav');
       window.adplay = document.createElement('audio');
-      window.adplay.setAttribute('loop', true);
       window.adplay.setAttribute('src', url);
     }
   

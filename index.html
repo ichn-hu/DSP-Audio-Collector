@@ -156,6 +156,9 @@
                     ++this.current;
                 },
                 startRecord: function () {
+                    if (window.adplay) {
+                        window.adplay.pause();
+                    }
                     if (!this.stu_id) {
                         alert("请输入你的学号！");
                         return;
