@@ -3,7 +3,7 @@ Web app created to collect audios for course project
 
 Recorder使用说明
 
-1. 地址在https://ichn-hu.github.io/DSP-Audio-Collector/，请用chrome or firefox or edge打开，目前看来仿佛各个浏览器录音效果有区别，需要进一步研究
+1. 地址在[https://ichn-hu.github.io/DSP-Audio-Collector/](https://ichn-hu.github.io/DSP-Audio-Collector/)，请用chrome or firefox or edge打开，目前看来仿佛各个浏览器录音效果有区别，需要进一步研究
 2. 提示请求使用麦克风，请确认授予权限
 3. 输入学号，第二个输入框内的值为当前录音条目编号，这个值可以帮助暂停/恢复录制
 4. 一个条目完整的录音过程如下
