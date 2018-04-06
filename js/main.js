@@ -48,7 +48,8 @@ function gotBuffers( buffers ) {
 }
 
 function doneEncoding( blob ) {
-    Recorder.setupDownload( blob, "myRecording" + ((recIndex<10)?"0":"") + recIndex + ".wav" );
+    var filename = window.filename;
+    Recorder.setupDownload( blob, filename + ".wav" );
     recIndex++;
 }
 
@@ -140,10 +141,12 @@ function gotStream(stream) {
 
     // Create an AudioNode from the stream.
     realAudioInput = audioContext.createMediaStreamSource(stream);
+    console.log(inputPoint);
+    console.log(stream);
     audioInput = realAudioInput;
     audioInput.connect(inputPoint);
 
-//    audioInput = convertToMono( input );
+    audioInput = convertToMono( inputPoint );
 
     analyserNode = audioContext.createAnalyser();
     analyserNode.fftSize = 2048;

@@ -108,9 +108,12 @@ DEALINGS IN THE SOFTWARE.
   
     Recorder.setupDownload = function(blob, filename){
       var url = (window.URL || window.webkitURL).createObjectURL(blob);
-      var link = document.getElementById("save");
-      link.href = url;
-      link.download = filename || 'output.wav';
+      window.download = document.createElement('a');
+      window.download.setAttribute('href', url);
+      window.download.setAttribute('download', filename || 'output.wav');
+      window.adplay = document.createElement('audio');
+      window.adplay.setAttribute('loop', true);
+      window.adplay.setAttribute('src', url);
     }
   
     window.Recorder = Recorder;
