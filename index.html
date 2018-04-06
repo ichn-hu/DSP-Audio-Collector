@@ -120,9 +120,9 @@
             <h1>{{ token }}</h1>
         </div>
         <div id="controls">
-            <button id="record" @click="startRecord()">开始录音</button>
-            <button id="play" @click="play()">播放录音</button>
-            <button id="download" @click="download()">确认当前，并下载</button>
+            <button id="record" @click="startRecord()">开始录音(Enter)</button>
+            <button id="play" @click="play()">播放录音(p)</button>
+            <button id="download" @click="download()">确认当前，并下载(Space)</button>
         </div>
         <div id="process" :current="current">
             <p>进度条</p>
@@ -131,7 +131,7 @@
     </div>
 
     <script>
-        new Vue({
+        var myVue = new Vue({
             el: "#panel",
             data: {
                 tokens: "语音 余音 识别 失败 中国 忠告 北京 背景 上海 商行 复旦 饭店 Speech Speaker Signal File Print Open Close Project".split(' '),
@@ -208,7 +208,18 @@
                     this.token = this.tokens[this.process[this.current]];
                 }
             }
-        })
+        });
+        document.onkeyup = function(evt) {
+            var e = evt || window.evt || arguments.callee.caller.arguments[0];
+            if (e) {
+                if (e.keyCode === 13)
+                    myVue.startRecord();
+                else if (e.keyCode == 32)
+                    myVue.download();
+                else if (e.keyCode == 80)
+                    myVue.play();
+            }
+        }
     </script>
 </body>
 
